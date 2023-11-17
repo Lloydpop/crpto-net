@@ -166,6 +166,7 @@ export const Header = ({}: HeaderProps) => {
           />
         ),
         size: "md",
+        showCloseIcon: true,
       })}
     </div>
   );

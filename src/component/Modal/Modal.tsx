@@ -44,9 +44,7 @@ export const Modal: React.FC<ModalProps> = ({
           <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0 relative">
             <Dialog.Panel
               className={classNames(
-                `relative transform rounded-lg bg-[#FDF3E9] text-left shadow-xl duration-[1s] ease-in sm:my-8 sm:w-full  ${
-                  open === true ? "translate-y-0" : "-translate-y-[1000px]"
-                }`,
+                `relative transform rounded-lg bg-[#FDF3E9] text-left shadow-xl duration-[1s] ease-in sm:my-8 sm:w-full`,
                 {
                   "sm:max-w-lg": size === "lg",
                   "sm:max-w-md": size === "md",
@@ -55,7 +53,7 @@ export const Modal: React.FC<ModalProps> = ({
               )}
             >
               {showCloseIcon && (
-                <div className="absolute top-6 right-4">
+                <div className="absolute top-6 right-4 cursor-pointer z-10">
                   <button
                     className=" text-gray-600"
                     onClick={() => setOpen(false)}
