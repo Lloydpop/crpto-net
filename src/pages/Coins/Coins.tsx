@@ -125,14 +125,8 @@ const Coins = ({ loggedIn = false, count = "100" }: Props) => {
         </div>
       ) : (
         <div>
-          <h1 className="font-titi text-[30px] mb-6 w-fit">
-            List of major coins in the world
-            <p className="mt-1 flex items-center justify-center">
-              <p className="w-[10px] h-[10px] rounded-full gradient "></p>
-              <p className="w-full h-[1px] bg-[#ffffff54]"></p>
-              <p className="w-[10px] h-[10px] rounded-full gradient "></p>
-            </p>
-          </h1>
+          <Heading> List of major coins in the world</Heading>
+
           <div className="lg:w-[400px] relative">
             <Input
               placeholder="search for cryptocurrency..."
