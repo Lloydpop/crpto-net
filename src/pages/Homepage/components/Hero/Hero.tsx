@@ -8,7 +8,7 @@ export const Hero = ({}: HeroProps) => {
       <div className="lg:w-[50%] w-full flex gap-x-6">
         <div className="mt-4 flex items-center flex-col">
           <p className="w-[20px] h-[20px] rounded-full gradient "></p>
-          <p className="w-[1px] h-[70%] bg-[#ffffff54]"></p>
+          <p className="w-[1px] h-full bg-[#ffffff54]"></p>
           <p className="w-[20px] h-[20px] rounded-full gradient "></p>
         </div>
         <div>
@@ -26,7 +26,6 @@ export const Hero = ({}: HeroProps) => {
             empowerment.
           </p>
           <div className="mt-6 flex items-center gap-6">
-            <Button>Get Started</Button>
             <Button variant="outline">Learn more</Button>
           </div>
         </div>

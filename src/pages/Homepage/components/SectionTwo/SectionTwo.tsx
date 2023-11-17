@@ -5,20 +5,30 @@ import ripple from "../../../../assets/img/ripple.png";
 import eth from "../../../../assets/img/eth.png";
 import arrow from "../../../../assets/img/arrow.png";
 import lite from "../../../../assets/img/litecon.png";
+import YouTube from "react-youtube";
+import { Heading } from "../../../../component";
+import { Airplane } from "iconsax-react";
 interface SectionTwoProps {}
 
 const SectionTwo = ({}: SectionTwoProps) => {
+  const opts = {
+    height: "315",
+    width: "100%",
+    playerVars: {
+      autoplay: 1,
+    },
+  };
+  const videoId = "rYQgy8QDEBI";
   return (
     <div>
       <section className="my-24">
-        <h1 className=" font-titi text-[1.8rem] font-[500] text-center">
-          Top Crypto Companies
-        </h1>
-        <div className="mt-2 flex items-center justify-center">
-          <p className="w-[10px] h-[10px] rounded-full gradient "></p>
-          <p className="w-[300px] h-[1px] bg-[#ffffff54]"></p>
-          <p className="w-[10px] h-[10px] rounded-full gradient "></p>
+        <div className="flex justify-center flex-col items-center">
+          <Heading> Top Crypto Companies</Heading>
+          <p className="lg:w-[500px] text-center mt-5 font-lighter text-gray-300">
+            Here is a list of some top cryptocurrencies.
+          </p>
         </div>
+
         <div className="overflow-hidden">
           <div className="flex  items-center  mt-12 py-8 infinite-slider-container mx-auto">
             <div className="flex items-center gap-4 slider-item">
@@ -74,6 +84,28 @@ const SectionTwo = ({}: SectionTwoProps) => {
         <span className=" mt-8 flex justify-center items-center gap-3 text-[1.2rem]">
           See more <img src={arrow} className="w-8" />
         </span>
+      </section>
+      <section className="flex justify-center flex-col items-center">
+        <Heading>
+          <p className="flex items-center gap-2">
+            {" "}
+            Take A Quick Tour <Airplane className="w-8" />
+          </p>
+        </Heading>
+        <p className="lg:w-[500px] text-center mt-5 font-lighter text-gray-300">
+          Watch video to get a little insight about crypto-trading.
+        </p>
+        <div className="p-7 bg-gradient-to-r from-[#7ce8d8] via-[#8570e9] to-[#7ce8d8] mt-16">
+          <YouTube
+            className=" lg:w-[700px]"
+            videoId={videoId}
+            opts={opts}
+            onReady={(event) => {
+              // access to player in all event handlers via event.target
+              event.target.pauseVideo();
+            }}
+          />
+        </div>
       </section>
     </div>
   );

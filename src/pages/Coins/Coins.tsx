@@ -63,7 +63,7 @@ const Coins = ({ loggedIn = false, count = "100" }: Props) => {
       );
       setCoin(filteredData);
     }
-  }, [coinList, searchTerm, data]);
+  }, [searchTerm, data]);
   if (isLoading || isFetching) {
     return <Loader title="Loading Coins...." />;
   }

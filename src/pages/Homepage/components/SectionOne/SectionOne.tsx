@@ -5,6 +5,7 @@ import arrow from "../../../../assets/img/arrow.png";
 import robot from "../../../../assets/img/robot.png";
 import robot2 from "../../../../assets/img/robot2.png";
 import robot3 from "../../../../assets/img/robot3.png";
+import { Heading } from "../../../../component";
 interface SectionOneProps {}
 
 const SectionOne = ({}: SectionOneProps) => {
@@ -12,14 +13,10 @@ const SectionOne = ({}: SectionOneProps) => {
     <div className="my-24">
       {/* section one */}
       <section>
-        <h1 className=" font-titi text-[1.8rem] font-[500] text-center">
-          Did You Know?
-        </h1>
-        <div className="mt-2 flex items-center justify-center">
-          <p className="w-[10px] h-[10px] rounded-full gradient "></p>
-          <p className="w-[180px] h-[1px] bg-[#ffffff54]"></p>
-          <p className="w-[10px] h-[10px] rounded-full gradient "></p>
+        <div className="flex justify-center">
+          <Heading>Did You Know Cryptocurrency Offers?</Heading>
         </div>
+
         <div className="mt-20 flex lg:flex-row flex-col justify-center gap-24 relative">
           <p className="absolute lg:left-0 lg:top-12 right-0 -top-12">
             <img src={robot2} className="w-[80px]" />
@@ -52,7 +49,7 @@ const SectionOne = ({}: SectionOneProps) => {
           />
         </div>
         <div className="mt-20 flex lg:flex-row flex-col  justify-center gap-24 relative">
-          <p className="absolute lg:left-0 lg:top-12 right-0 -top-12">
+          <p className="absolute lg:left-0 lg:top-12 right-0 -top-16">
             <img src={robot3} className="w-[80px]" />
           </p>
           <div className="lg:w-[400px] flex gap-8">
