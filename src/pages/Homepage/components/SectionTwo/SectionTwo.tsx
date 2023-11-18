@@ -15,7 +15,7 @@ const SectionTwo = ({}: SectionTwoProps) => {
     height: "315",
     width: "100%",
     playerVars: {
-      autoplay: 1,
+      autoplay: 0,
     },
   };
   const videoId = "rYQgy8QDEBI";
