@@ -37,3 +37,6 @@ body {
     transform: translateX(-100%); /* Adjust to control the sliding speed */
   }
 }
+.gd {
+  @apply bg-gradient-to-r from-blue-500 via-[#7ce8d8] to-[#7ce8d8] text-transparent bg-clip-text;
+}

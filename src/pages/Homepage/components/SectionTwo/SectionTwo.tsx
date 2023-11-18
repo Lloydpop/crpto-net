@@ -95,7 +95,7 @@ const SectionTwo = ({}: SectionTwoProps) => {
         <p className="lg:w-[500px] text-center mt-5 font-lighter text-gray-300">
           Watch video to get a little insight about crypto-trading.
         </p>
-        <div className="p-7 bg-gradient-to-r from-[#7ce8d8] via-[#8570e9] to-[#7ce8d8] mt-16">
+        <div className="p-3 bg-gradient-to-r from-[#7ce8d8] via-[#8570e9] to-[#7ce8d8] mt-16">
           <YouTube
             className=" lg:w-[700px]"
             videoId={videoId}

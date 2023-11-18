@@ -13,16 +13,18 @@ export const Hero = ({}: HeroProps) => {
         <div>
           <h1 className="lg:text-[3.2rem] text-[2rem] font-semibold font-titi">
             Your Gateway
-            <br /> to Seamless Crypto{" "}
+            <br />
+            to Tracking the Crypto{" "}
             <span className="bg-gradient-to-r from-blue-500 via-[#7ce8d8] to-[#7ce8d8] text-transparent bg-clip-text">
-              Innovation.{" "}
+              Markets.{" "}
             </span>
           </h1>
           <p className="text-[15px] text-gray-200 lg:w-[500px] my-4">
-            Experience financial sophistication. Navigate the world of
-            cryptocurrency with ease, blending cutting-edge technology and
-            refined simplicity. Join our community for confident financial
-            empowerment.
+            Experience the sophistication of tracking cryptocurrency exchange
+            rates effortlessly. Our platform seamlessly blends cutting-edge
+            technology with refined simplicity, empowering you with confidence
+            in understanding and monitoring crypto values. Join our community
+            for a journey into precise cryptocurrency tracking.
           </p>
           <div className="mt-6 flex items-center gap-6">
             <a

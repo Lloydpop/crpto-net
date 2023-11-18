@@ -127,7 +127,7 @@ const Coins = ({ loggedIn = false, count = "100" }: Props) => {
         <div>
           <Heading> List of major coins in the world</Heading>
 
-          <div className="lg:w-[400px] relative">
+          <div className="lg:w-[400px] mt-6 relative">
             <Input
               placeholder="search for cryptocurrency..."
               onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
@@ -147,7 +147,7 @@ const Coins = ({ loggedIn = false, count = "100" }: Props) => {
           {coinList?.map((coin, i) => (
             <div
               key={i}
-              className="lg:col-span-3 md:col-span-6  sm:col-span-12 col-span-12 bg-white text-black p-4 min-h-[190px] border-primary border-4  rounded-xl cursor-pointer hover:scale-[1.1] duration-200"
+              className="lg:col-span-3 md:col-span-6  sm:col-span-12 col-span-12 bg-white text-black p-4 min-h-[190px] border-primary border-4  rounded-xl cursor-pointer lg:hover:scale-[1.1] duration-200"
               onClick={() => {
                 navigate(`/coins/${coin?.uuid}`);
               }}

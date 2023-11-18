@@ -7,12 +7,16 @@ import { app, googleProvider } from "../../firebase";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { Coin1, Graph } from "iconsax-react";
+import { HomeModernIcon } from "@heroicons/react/24/solid";
+import { useLocation } from "react-router-dom";
+import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
 interface HeaderProps {}
 
 export const Header = ({}: HeaderProps) => {
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
+  const location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
     const unsubscribe = app.auth().onAuthStateChanged((authUser) => {
@@ -55,6 +59,11 @@ export const Header = ({}: HeaderProps) => {
 
   const main = [
     {
+      title: "Home",
+      to: "/",
+      icon: <HomeModernIcon className="w-5 h-5" />,
+    },
+    {
       title: "Coins",
       to: "/coins",
       icon: <Coin1 variant="Bold" className="w-5 h-5" />,
@@ -65,10 +74,11 @@ export const Header = ({}: HeaderProps) => {
       icon: <Graph variant="Bold" className="w-5 h-5" />,
     },
   ];
-  const displayNameArray = user?.displayName ? user.displayName.split("") : [];
-
-  const userName = displayNameArray.length
-    ? `${displayNameArray[0]}${displayNameArray[displayNameArray.length - 1]}`
+  const userName = user?.displayName
+    ? user.displayName
+        .split(" ")
+        .map((word: string) => word.charAt(0))
+        .join("")
     : "UU";
 
   return (
@@ -85,7 +95,9 @@ export const Header = ({}: HeaderProps) => {
               onClick={() => {
                 setOpen(false);
               }}
-              className=" flex  items-center gap-2 text-[20px] lg:text-[16px] font-titi lg:font-satoshi"
+              className={` flex  items-center gap-2 text-[20px] lg:text-[16px] font-titi lg:font-satoshi ${
+                location.pathname == link.to ? "text-blue-400" : ""
+              }`}
               key={i}
               to={link.to}
             >
@@ -102,6 +114,7 @@ export const Header = ({}: HeaderProps) => {
               }}
             >
               {loading ? "logging off" : "Logout"}
+              <ArrowRightOnRectangleIcon className="w-5 h-5 ml-2" />
             </Button>
           ) : (
             <Button
@@ -111,6 +124,7 @@ export const Header = ({}: HeaderProps) => {
               }}
             >
               Login
+              <ArrowRightOnRectangleIcon className="w-5 h-5 ml-2" />
             </Button>
           )}
         </div>
@@ -147,10 +161,13 @@ export const Header = ({}: HeaderProps) => {
         <div className="hidden lg:block">
           {user ? (
             <Button onClick={handleLogout}>
-              {loading ? "logging off" : "Logout"}
+              {loading ? "...." : "Logout"}
+              <ArrowRightOnRectangleIcon className="w-5 h-5 ml-2" />
             </Button>
           ) : (
-            <Button onClick={showModal}>Login</Button>
+            <Button onClick={showModal}>
+              Login <ArrowRightOnRectangleIcon className="w-5 h-5 ml-2" />
+            </Button>
           )}
         </div>
         {user && (

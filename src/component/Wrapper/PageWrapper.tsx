@@ -12,7 +12,7 @@ export const PageWrapper = ({ children }: PageWrapperProps) => {
         <div className="py-8">
           <Header />
         </div>
-        <div className="lg:mt-14 mt-12 overflow-x-hidden lg:px-20 px-8">
+        <div className="lg:mt-6 mt-3 overflow-hidden lg:px-20 px-8 py-6">
           {children}
         </div>
       </div>
