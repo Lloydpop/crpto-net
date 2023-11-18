@@ -18,7 +18,7 @@ const SectionTwo = ({}: SectionTwoProps) => {
     limit: 12,
     offset: "0",
   };
-  const { data, error, isLoading } = useQuery<CoinsProps, Error>(
+  const { data, isLoading } = useQuery<CoinsProps, Error>(
     ["coinData"],
     () => fetchCoinGeckoData("coins", params),
     {
