@@ -1,5 +1,4 @@
 import bit from "../../../../assets/img/bit2.gif";
-import { Button } from "../../../../component/Button/Button";
 interface HeroProps {}
 
 export const Hero = ({}: HeroProps) => {
