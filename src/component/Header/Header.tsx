@@ -72,7 +72,7 @@ export const Header = ({}: HeaderProps) => {
     : "UU";
 
   return (
-    <div className="flex justify-between lg:items-center">
+    <div className="flex justify-between lg:items-center lg:px-20 px-8">
       <Logo />
       <div
         className={`flex items-center lg:flex-row flex-col lg:justify-center gap-10 fixed lg:static lg:bg-transparent bg-[#000000e1] left-0  w-full h-full pt-[100px] lg:pt-0 z-[10000] duration-[0.6s] ease-in-out transition-[top] ${
@@ -124,19 +124,21 @@ export const Header = ({}: HeaderProps) => {
           }}
         >
           <span
-            className={`w-[36px] h-[2px] bg-white block duration-100 ${
-              open ? "rotate-[43deg] translate-y-4" : "rotate-0 translate-y-0"
+            className={`w-[32px] h-[2px] bg-white block duration-100 ${
+              open
+                ? "rotate-[50deg] translate-y-[1rem]"
+                : "rotate-0 translate-y-0"
             }`}
           ></span>
           <span
-            className={`w-[36px] h-[2px] bg-white block ${
+            className={`w-[32px] h-[2px] bg-white block ${
               open ? "opacity-0 hidden" : "opacity-100 block"
             }`}
           ></span>
           <span
-            className={`w-[36px] h-[2px] bg-white block duration-100  ${
+            className={`w-[32px] h-[2px] bg-white block duration-100  ${
               open
-                ? "-rotate-[37deg] translate-y-[6px]"
+                ? "-rotate-[39deg] translate-y-[5px]"
                 : "rotate-0 translate-y-0"
             }`}
           ></span>

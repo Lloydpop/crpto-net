@@ -251,9 +251,9 @@ const CoinDetail = ({}: AnalyticsProps) => {
               {HTMLReactParser(data?.coin.description)}
             </p>
             {data.coin.links && (
-              <p className="mt-8 flex items-center gap-2">
+              <p className="mt-8 flex items-center gap-2 text-sm">
                 Visit links below to know more about {data?.coin.name}
-                <img src={arrow} className="w-8" />
+                <img src={arrow} className="w-6" />
               </p>
             )}
             {data.coin.links.map((link, i) => (

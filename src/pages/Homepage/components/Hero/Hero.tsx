@@ -26,7 +26,15 @@ export const Hero = ({}: HeroProps) => {
             empowerment.
           </p>
           <div className="mt-6 flex items-center gap-6">
-            <Button variant="outline">Learn more</Button>
+            <a
+              href="https://www.udemy.com/topic/cryptocurrency/free/"
+              target="_blank"
+              rel="noreferer"
+              className="bg-transparent text-white !border-gray-300 hover:bg-gray-50 hover:text-black py-3 font-[500] flex justify-center rounded-3xl border   px-7 text-[15px] items-center
+              shadow-sm "
+            >
+              Learn more
+            </a>
           </div>
         </div>
       </div>

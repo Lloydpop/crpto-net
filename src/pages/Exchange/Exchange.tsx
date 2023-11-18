@@ -28,11 +28,11 @@ const Exchange = ({}: ExchangeProps) => {
   const [allItems, setAllItems] = useState<ExchangeProps | any>([]);
   const [currentPageItems, setCurrentPageItems] = useState<
     ExchangeProps["data"] | undefined
-  >();
+  >([]);
   const [currentPage, setCurrentPage] = useState(1);
 
   const { data, error, isLoading, isFetching } = useQuery<ExchangeProps | any>(
-    ["coinExchange", currentPage], // Include currentPage in the dependencies
+    ["coinExchange", currentPage],
     () => fetchCryptoExchange(),
     {
       staleTime: 0,
@@ -42,7 +42,6 @@ const Exchange = ({}: ExchangeProps) => {
   useEffect(() => {
     if (data) {
       setAllItems(data);
-      setCurrentPage(1);
     }
   }, [data]);
 
@@ -53,7 +52,7 @@ const Exchange = ({}: ExchangeProps) => {
       const itemsForCurrentPage = allItems?.slice(startIndex, endIndex);
       setCurrentPageItems(itemsForCurrentPage);
     }
-  }, [allItems, currentPage, itemsPerPage, data]);
+  }, [allItems, currentPage, itemsPerPage]);
 
   const handlePageChange = (selectedPage: number) => {
     setCurrentPage(selectedPage);
@@ -74,7 +73,7 @@ const Exchange = ({}: ExchangeProps) => {
   }
 
   return (
-    <div className="mt-16">
+    <div className="lg:mt-6">
       <Heading>Track your crypto exchange rate</Heading>
       <div className="overflow-x-auto">
         <div className="grid grid-cols-12 mt-12 w-[1000px] lg:w-full">
@@ -122,7 +121,7 @@ const Exchange = ({}: ExchangeProps) => {
                     href={exchange?.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="lowercase"
+                    className="lowercase hover:text-blue-600"
                   >
                     {exchange?.name}
                   </a>
@@ -147,7 +146,7 @@ const Exchange = ({}: ExchangeProps) => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center mt-6">
+      <div className="flex justify-center mt-6 mb-8">
         <Pagination
           totalItems={allItems?.length || 0}
           itemsPerPage={itemsPerPage}

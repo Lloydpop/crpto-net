@@ -28,7 +28,7 @@ function Pagination({
       previousLabel={<ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />}
       renderOnZeroPageCount={null}
       containerClassName="pagination"
-      pageClassName="pagination__item"
+      pageClassName="pagination__item lg:flex hidden"
       previousClassName="pagination__item-previous"
       nextClassName="pagination__item-next"
       breakClassName="pagination__item"

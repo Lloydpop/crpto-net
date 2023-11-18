@@ -7,7 +7,7 @@ function App() {
   const queryClient = new QueryClient();
   return (
     <QueryClientProvider client={queryClient}>
-      <PageRouter />;
+      <PageRouter />
       <ToastContainer />
     </QueryClientProvider>
   );

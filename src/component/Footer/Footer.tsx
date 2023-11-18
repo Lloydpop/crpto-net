@@ -3,11 +3,13 @@ import gif from "../../assets/img/trade.gif";
 interface FooterProps {}
 
 export const Footer = ({}: FooterProps) => {
+  const date = new Date();
+  const year = date.getFullYear();
   return (
     <div>
       <footer className="mt-24 border-t-[1px] lg:border-b-[1px] border-[#bbb7b763] lg:py-12 pt-4 lg:px-20 px-8">
         <div className="flex lg:flex-row flex-col justify-between rounded-xl  lg:overflow-hidden  mb-6 lg:min-h-[300px]">
-          <div className="p-4">
+          <div className="p-4 mt-5">
             {" "}
             <Logo />
             <p className="font-titi">Crypto-Net</p>
@@ -41,8 +43,8 @@ export const Footer = ({}: FooterProps) => {
           </div>
         </div>
 
-        <p className="lg:text-center font-titi text-[#bbb7b7]">
-          Copyright all right reserved @2023
+        <p className="lg:text-center font-titi text-[#bbb7b7] mb-5">
+          Copyright all right reserved @{year}
         </p>
       </footer>
     </div>
