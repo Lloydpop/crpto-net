@@ -5,7 +5,7 @@ interface LoaderProps {
 
 export const Loader = ({ title }: LoaderProps) => {
   return (
-    <div className="flex items-center flex-col justify-center min-h-[400px]">
+    <div className="flex items-center flex-col justify-center lg:min-h-[400px] lg:mt-0 mt-24">
       <img src={bit} alt="loading" className="w-[160px]" />
       <p className="font-titi font-bold text-[20px]">{title}</p>
     </div>

@@ -17,12 +17,13 @@ interface Coin {
   change: string;
   marketCap: string;
   price: number;
+  coinrankingUrl: string;
 }
 interface Props {
   loggedIn?: boolean;
   count?: string;
 }
-interface CoinsProps {
+export interface CoinsProps {
   coins: Coin[];
   stats: {
     totalCoins: number;

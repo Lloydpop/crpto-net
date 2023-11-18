@@ -1,16 +1,32 @@
-import coinbase from "../../../../assets/img/coinbase2.png";
-import binance from "../../../../assets/img/binance.svg";
-import gemini from "../../../../assets/img/gemini.webp";
-import ripple from "../../../../assets/img/ripple.png";
-import eth from "../../../../assets/img/eth.png";
 import arrow from "../../../../assets/img/arrow.png";
-import lite from "../../../../assets/img/litecon.png";
 import YouTube from "react-youtube";
 import { Heading } from "../../../../component";
 import { Airplane } from "iconsax-react";
+import { useQuery } from "react-query";
+import { CoinsProps } from "../../../Coins/Coins";
+import placeholder from "../../../../assets/img/coin.png";
+import { fetchCoinGeckoData } from "../../../../services/crypto";
 interface SectionTwoProps {}
 
 const SectionTwo = ({}: SectionTwoProps) => {
+  const params = {
+    referenceCurrencyUuid: "yhjMzLPhuIDl",
+    timePeriod: "24h",
+    "tiers[0]": "1",
+    orderBy: "marketCap",
+    orderDirection: "desc",
+    limit: 12,
+    offset: "0",
+  };
+  const { data, error, isLoading } = useQuery<CoinsProps, Error>(
+    ["coinData"],
+    () => fetchCoinGeckoData("coins", params),
+    {
+      staleTime: 0,
+    }
+  );
+  console.log(data);
+
   const opts = {
     height: "315",
     width: "100%",
@@ -31,59 +47,32 @@ const SectionTwo = ({}: SectionTwoProps) => {
 
         <div className="overflow-hidden">
           <div className="flex  items-center  mt-12 py-8 infinite-slider-container mx-auto">
-            <div className="flex items-center gap-4 slider-item">
-              <img src={coinbase} className="w-10" />
-              <p className="font-titi text-md leading-7">COINBASE</p>
-            </div>
-            <div className="flex items-center gap-4 slider-item">
-              <img src={lite} className="w-10" />
-              <p className="font-titi text-md leading-7">LITECOIN</p>
-            </div>
-            <div className="flex items-center gap-3 slider-item">
-              <img src={binance} className="w-[80px]" />
-              <p className="font-titi text-md leading-7">BINANCE</p>
-            </div>
-            <div className="flex items-center gap-4 slider-item">
-              <img src={gemini} className="w-10" />
-              <p className="font-titi text-md leading-7">GEMINI</p>
-            </div>
-            <div className="flex items-center gap-4 slider-item">
-              <img src={ripple} className="w-10" />
-              <p className="font-titi text-md leading-7 slider-item">RIPPLE</p>
-            </div>
-            <div className="flex items-center gap-4 slider-item">
-              <img src={eth} className="w-10" />
-              <p className="font-titi text-md leading-7">ETHEREUM</p>
-            </div>
-            <div className="flex items-center gap-4 slider-item">
-              <img src={coinbase} className="w-10" />
-              <p className="font-titi text-md leading-7">COINBASE</p>
-            </div>
-            <div className="flex items-center gap-4 slider-item">
-              <img src={lite} className="w-10" />
-              <p className="font-titi text-md leading-7">LITECOIN</p>
-            </div>
-            <div className="flex items-center gap-3 slider-item">
-              <img src={binance} className="w-[80px]" />
-              <p className="font-titi text-md leading-7">BINANCE</p>
-            </div>
-            <div className="flex items-center gap-4 slider-item">
-              <img src={gemini} className="w-10" />
-              <p className="font-titi text-md leading-7">GEMINI</p>
-            </div>
-            <div className="flex items-center gap-4 slider-item">
-              <img src={ripple} className="w-10" />
-              <p className="font-titi text-md leading-7 slider-item">RIPPLE</p>
-            </div>
-            <div className="flex items-center gap-4 slider-item">
-              <img src={eth} className="w-10" />
-              <p className="font-titi text-md leading-7">ETHEREUM</p>
-            </div>
+            {isLoading
+              ? "loading....."
+              : data?.coins.map((coin, i) => (
+                  <a
+                    target="_blank"
+                    rel="noreferer"
+                    href={coin?.coinrankingUrl}
+                    key={i}
+                    className="flex items-center gap-4 slider-item"
+                  >
+                    <img src={coin?.iconUrl || placeholder} className="w-10" />
+                    <p className="font-titi text-md leading-7 uppercase">
+                      {coin.name}
+                    </p>
+                  </a>
+                ))}
           </div>
         </div>
-        <span className=" mt-8 flex justify-center items-center gap-3 text-[1.2rem]">
-          See more <img src={arrow} className="w-8" />
-        </span>
+        <a
+          href="https://coinmarketcap.com/all/views/all/"
+          target="_blank"
+          rel="noreferer"
+          className=" mt-8 flex justify-center items-center gap-3 lg:text-[1.2rem]"
+        >
+          See more <img src={arrow} className="lg:w-8 w-6" />
+        </a>
       </section>
       <section className="flex justify-center flex-col items-center">
         <Heading>
